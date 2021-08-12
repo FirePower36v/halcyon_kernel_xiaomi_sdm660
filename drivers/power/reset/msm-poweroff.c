@@ -567,12 +567,14 @@ static void msm_restart_prepare(const char *cmd)
 		} else {
 #if defined(CONFIG_MACH_LONGCHEER) || defined(CONFIG_MACH_XIAOMI_CLOVER) || defined(CONFIG_MACH_XIAOMI_JASON)
 			qpnp_pon_set_restart_reason(PON_RESTART_REASON_NORMAL);
+#endif
 			__raw_writel(0x77665501, restart_reason);
 		}
 #if defined(CONFIG_MACH_LONGCHEER) || defined(CONFIG_MACH_XIAOMI_CLOVER)
 	} else {
 		qpnp_pon_set_restart_reason(PON_RESTART_REASON_NORMAL);
 		__raw_writel(0x77665501, restart_reason);
+#endif
 	}
 
 	flush_cache_all();
